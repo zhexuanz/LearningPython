@@ -18,6 +18,18 @@ list1.append( list2 )
 
 ## pandas
 
+* Import dataframe from spreadsheet. The same command can also reads table from url. read_csv can directly reads csv without setting the 
+
+`
+df = pandas.read_table('data/abc.csv', sep = ',')
+`
+
+* Save dataframe to CSV with no index
+
+`
+df.to_csv('abc.csv', index=False)
+`
+
 * Create dataframe from list of list
 
 ```
@@ -25,21 +37,22 @@ df = pandas.DataFrame(listoflist)
 df.columns = [ 'time', 'low', 'high', 'open', 'close', 'volume' ]  # gives column header
 ```
 
+* Find the max of a column
+
+`
+val = pd['columnname'].max()
+`
+
 * Sort dataframe by a column value
 
 `
 df.sort_value( 'time', inplace = True )
 `
-* Save dataframe to CSV with no index
 
-`
-df.to_csv('abc.csv', index=False)
-`
 * Add new column from a calculation using an existing column through lambda
 
 `
 df.newcolumn = df.existingcolumn.apply( lambda x: ( x/3 + 2 ) )
-`              
 
 
 ## datetime
