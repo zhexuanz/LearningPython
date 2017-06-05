@@ -12,9 +12,20 @@ ll.append( 'a' )
 * Concatenate with another array
 
 `
-list1.append( list2 )
+list1.extend( list2 )
 `
 
+* List grep
+`
+names = ['aet2000','ppt2000', 'aet2001', 'ppt2001']
+filter(lambda x:'aet' in x, names)
+`
+
+* List and Dict Comprehension
+`
+cols = [ x for x in CNY.columns.tolist() if 'time' not in x ]
+colsRename = {key:key+'_CNY' for key in cols}
+`
 
 ## pandas
 
@@ -46,14 +57,19 @@ val = pd['columnname'].max()
 * Sort dataframe by a column value
 
 `
-df.sort_value( 'time', inplace = True )
+df.sort_value( 'time', inplace = True ) 
 `
 
 * Add new column from a calculation using an existing column through lambda
 
 `
 df.newcolumn = df.existingcolumn.apply( lambda x: ( x/3 + 2 ) )
+`
 
+* Rename columns
+`
+df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)
+`
 
 ## datetime
 
