@@ -16,16 +16,18 @@ list1.extend( list2 )
 `
 
 * List grep
-`
+
+```
 names = ['aet2000','ppt2000', 'aet2001', 'ppt2001']
 filter(lambda x:'aet' in x, names)
-`
+```
 
 * List and Dict Comprehension
-`
+
+```
 cols = [ x for x in CNY.columns.tolist() if 'time' not in x ]
 colsRename = {key:key+'_CNY' for key in cols}
-`
+```
 
 ## pandas
 
@@ -70,6 +72,13 @@ df.newcolumn = df.existingcolumn.apply( lambda x: ( x/3 + 2 ) )
 `
 df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)
 `
+
+* Merge 2 dataframes. Refer to [official documentation](https://pandas.pydata.org/pandas-docs/stable/merging.html) for more details
+`
+new = pandas.merge(left,right,on=['time'],how='inner')
+`
+
+
 
 ## datetime
 
